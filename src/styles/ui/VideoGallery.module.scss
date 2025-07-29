@@ -1,0 +1,25 @@
+.playerwrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.reactplayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.reactplayer :global(.react-player__preview)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;  /* size of the play icon */
+  height: 150px;
+  mask: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>') no-repeat center;
+  mask-size: contain;
+  background-color: white; /* color of the play icon */
+  pointer-events: none;
+}
