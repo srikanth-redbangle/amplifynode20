@@ -1,18 +1,7 @@
-import { NextResponse } from 'next/server';
-
-export function middleware(req) {
-  const country = req.geo?.country; // e.g. 'IN'
-  const { pathname } = req.nextUrl;
-
-  if (pathname.startsWith('/team')) {
-    const url = req.nextUrl.clone();
-    url.pathname = '/collab';
-    return NextResponse.redirect(url);
-  }
-
-  return NextResponse.next();
+export function middleware() {
+  return new Response('Middleware running on Amplify', { status: 200 });
 }
 
 export const config = {
-  matcher: ['/team/:path*'],
+  matcher: ['/collab/:path*'],
 };
