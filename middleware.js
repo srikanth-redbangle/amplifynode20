@@ -4,7 +4,7 @@ export function middleware(req) {
   const country = req.geo?.country; // e.g. 'IN'
   const { pathname } = req.nextUrl;
 
-  if (pathname.startsWith('/work/featured') && country = 'IN') {
+  if (pathname.startsWith('/team')) {
     const url = req.nextUrl.clone();
     url.pathname = '/collab';
     return NextResponse.redirect(url);
@@ -14,5 +14,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/work/featured/:path*'],
+  matcher: ['/team/:path*'],
 };
